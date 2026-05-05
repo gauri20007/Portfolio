@@ -1,0 +1,292 @@
+/* ------------------------------------------------------------------- */
+/* --- PROFESSIONAL COLOR PALETTE: NETFLIX DARK RED & MONTSERRAT ---   */
+/* ------------------------------------------------------------------- */
+:root {
+    --color-primary: #0a0a0a; /* Near Black/Deep Charcoal (Main Background) */
+    --color-secondary-dark: #141414; /* Netflix Primary Dark */
+    --color-accent: #e50914; /* Netflix Red (The professional pop color) */
+    --color-text: #ffffff; /* White (Primary Text) */
+    --color-light-gray: #a0a4ab; /* Light Gray (Subheading/Muted Text) */
+    --color-dark-card: #222222; /* Card Backgrounds */
+    --color-dark-accent: #333333; /* Darker accent for Badges/Tags background */
+}
+
+/* Global Styles and CRITICAL FIX for Fixed Header/Footer Offset */
+body {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    /* 👇 NEW FONT: Roboto for excellent readability in body text */
+    font-family: 'Roboto', sans-serif; 
+    
+    /* Pushes content down from the fixed header */
+    padding-top: 80px; 
+    /* Pushes content up from the fixed footer */
+    padding-bottom: 70px; 
+}
+
+/* Cinematic Background Vignette (Adds subtle depth) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Radial gradient darkens the corners slightly */
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: -1;
+}
+
+/* Headings - NEW FONT: Poppins for a bold, modern look */
+h1, h2, h3, h4, h5, h6, .section-heading, .masthead h1 {
+    font-family: 'Poppins', sans-serif; 
+    color: var(--color-text);
+}
+
+
+/* --- NAVIGATION BAR STYLES (Fixed Header) --- */
+#mainNav {
+    background-color: rgba(10, 10, 10, 0.98); /* Semi-transparent Dark */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    z-index: 1030;
+}
+.navbar-shrink {
+    background-color: var(--color-primary) !important;
+}
+.navbar-brand {
+    color: var(--color-accent) !important; /* Brand name is Red */
+    font-weight: bold;
+}
+.nav-link {
+    color: var(--color-text) !important; /* Links are White */
+}
+.nav-link:hover {
+    color: var(--color-accent) !important; /* Hover is Red */
+}
+/* Navigation 'Contact' Button */
+.btn-contact {
+    background-color: var(--color-accent) !important;
+    color: var(--color-text) !important; 
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.btn-contact:hover {
+    background-color: #f7212e !important; /* Slightly lighter red on hover */
+}
+
+
+/* --- SECTIONS & HEADINGS --- */
+.page-section {
+    padding: 7rem 0;
+}
+.bg-secondary-dark {
+    background-color: var(--color-secondary-dark) !important; /* Darker gray background for sections */
+}
+.text-light-gray {
+    color: var(--color-light-gray); /* Muted light gray text */
+}
+.text-accent {
+    color: var(--color-accent); /* Red accent */
+    font-weight: 600;
+}
+
+/* --- HERO SECTION --- */
+.masthead {
+    /* Text is already white/light, background is dark */
+    padding-top: 4rem; 
+    padding-bottom: 8rem;
+}
+/* Buttons */
+.btn-accent {
+    background-color: var(--color-accent) !important;
+    color: var(--color-text) !important;
+    border: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+/* Key Stand-Out Hover: Subtle lift and intense red glow */
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(229, 9, 20, 0.6); 
+    background-color: #f7212e !important;
+}
+.btn-outline-light {
+    border-color: var(--color-light-gray) !important;
+    color: var(--color-text) !important;
+    transition: background-color 0.2s;
+}
+.btn-outline-light:hover {
+    background-color: var(--color-accent) !important;
+    border-color: var(--color-accent) !important;
+    color: var(--color-text) !important;
+}
+.btn-accent-outline {
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    background: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-accent-outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+
+/* --- CARDS & 3D HOVER EFFECT (UX Enhancement) --- */
+/* Core Values Cards, Project Cards, and Skill Cards Base Style */
+.card-value, .bg-dark-card, .card-skill {
+    background: var(--color-dark-card); 
+    color: var(--color-text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    
+    /* 3D and Transition Setup */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s;
+    transform-style: preserve-3d; 
+    transform: translateZ(0); 
+}
+
+/* 3D Tilt Hover Effect - Makes elements feel tangible */
+.card-value:hover, .bg-dark-card:hover, .card-skill:hover {
+    /* Subtle 3D tilt and lift */
+    transform: perspective(1000px) rotateX(1deg) rotateY(1deg) scale(1.02); 
+    border-color: var(--color-accent);
+    /* Soft red glow on hover */
+    box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4); 
+}
+
+/* Work Project Tags */
+.text-bg-dark-accent {
+    /* Dark gray background for tags */
+    background-color: var(--color-dark-accent) !important; 
+    color: var(--color-light-gray) !important;
+    font-weight: normal;
+    padding: 0.5em 0.8em;
+}
+
+/* Skills Cards - Custom Styling */
+.card-skill h5 {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+}
+/* Skill list text (High contrast fix) */
+.card-skill ul li {
+    color: var(--color-text); 
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+
+/* --- CONTACT FORM STYLES --- */
+.form-control {
+    background-color: var(--color-dark-card);
+    color: var(--color-text);
+    border: 1px solid var(--color-light-gray);
+}
+.form-control:focus {
+    background-color: var(--color-dark-card);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.3); /* Red glow on focus */
+}
+.form-label, #contact .text-light-gray, #contact small { 
+    color: var(--color-text) !important;
+}
+.card.border-accent {
+    border: 2px solid var(--color-accent) !important;
+}
+
+
+/* --- FOOTER STYLING (Fixed Footer) --- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1020;
+    /* Dark background for the fixed footer */
+    background-color: var(--color-secondary-dark); 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer .text-light-gray {
+    color: var(--color-light-gray);
+}
+.btn-dark-social {
+    background-color: var(--color-dark-card);
+    color: var(--color-accent);
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-dark-social:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+
+/* --- RESPONSIVENESS ADJUSTMENTS (Mobile View) --- */
+@media (max-width: 992px) {
+    .page-section {
+        padding: 4rem 0;
+    }
+    .masthead .btn-xl {
+        display: block;
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    .col-md-3 {
+        margin-bottom: 1.5rem;
+    }
+    #contact .text-end {
+        text-align: center !important;
+    }
+}
+
+/* --- GD LOGO STYLING: The Cinematic Slice --- */
+.logo-gd {
+    /* Uses the professional Montserrat font set for headings */
+    font-family: 'Montserrat', sans-serif !important; 
+    font-size: 1.8rem;
+    font-weight: 800; /* Extra bold for prominence */
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-text) !important; 
+    position: relative;
+    letter-spacing: -2px; /* Tighten letters for a modern monogram look */
+    margin-left: -5px; 
+    transition: transform 0.2s ease-in-out;
+}
+.logo-gd:hover {
+    transform: scale(1.05); /* Slight lift on hover */
+}
+
+/* Style the 'G' */
+.logo-gd .logo-g {
+    color: var(--color-light-gray); /* Muted gray for depth */
+    position: relative;
+    z-index: 1;
+}
+
+/* Style the 'D' */
+.logo-gd .logo-d {
+    color: var(--color-accent); /* Bright Red accent */
+    position: relative;
+    z-index: 2;
+    /* Overlap the 'G' by moving the 'D' to the left */
+    left: -0.25rem; 
+    /* Add a subtle shadow/glow to fit the cinematic theme */
+    text-shadow: 0 0 5px rgba(229, 9, 20, 0.5); 
+}
+
+/* Ensure the default red is not applied to the whole brand container */
+.navbar-brand {
+    color: initial !important; 
+    padding: 0; 
+}
